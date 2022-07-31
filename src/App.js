@@ -4,14 +4,6 @@ import './App.css';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props); //required whenever you define a class component\
-
-    this.state = {
-
-    };
-  }
-
   render() {
     return (
       <div className='App'>

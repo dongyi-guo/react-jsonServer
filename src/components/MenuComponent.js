@@ -1,15 +1,7 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
 class Menu extends Component {
-
-    constructor(props) {
-        super(props); //required whenever you define a class component\
-
-        this.state = {
-            
-        };
-    }
 
     render() { //implement this method called render() which will return the corresponding view for this component
 
