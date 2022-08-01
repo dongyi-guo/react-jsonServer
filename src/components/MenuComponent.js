@@ -3,7 +3,8 @@ import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
 function RenderMenuItem({ dish, onClick }) {   //preferred way of implementing a functional component
     return (
-        <Card onClick={() => onClick(dish.id)}>
+        <Card>
+         {/* <Card onClick={() => onClick(dish.id)}> */}
             <CardImg width="100%" src={dish.image} alt={dish.name} />
             <CardImgOverlay>
                 <CardTitle>{dish.name}</CardTitle>
