@@ -6,12 +6,12 @@ function About(props) {
 
     const leaders = props.leaders.map((leader) => {
         return (
-            <div key={leader.id} className="col-12 mt-5">
-                <div className='d-flex align-items-center'>
-                    <div className="col-12 col-md-1 img-fluid" width="100% \9">
+            <div key={leader.id}>
+                <div className='d-flex'>
+                    <div className="col-md-1 align-top img-fluid" width="100% \9">
                         <img src={leader.image} alt={leader.name} />
                     </div>
-                    <div className="col-12 offset-md-1">
+                    <div className="offset-md-1">
                         <h4>{leader.name}</h4>
                         <subtitle>{leader.designation}</subtitle>
                         <p></p>
