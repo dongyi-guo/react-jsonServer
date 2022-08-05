@@ -73,7 +73,7 @@ class Contact extends Component {
         if (this.state.touched.telnum && !reg.test(telnum))   //test is a built in function to check if string is said value
             errors.telnum = 'Tel. Number should contain only numbers';
 
-        if(this.state.touched.email && email.split('').filter(x => x === '@').length !== 1)
+        if (this.state.touched.email && email.split('').filter(x => x === '@').length !== 1)
             errors.email = 'Email should contain a @';
 
         return errors;
