@@ -1,15 +1,16 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
 
 function About(props) {
 
-    const leaders = props.leaders.map((leader) => {
+    const leaders = props.leaders.leaders.map((leader) => {
         return (
             <div key={leader.id}>
                 <div className='d-flex'>
                     <div className="col-md-1 align-top img-fluid" width="100% \9">
-                        <img src={leader.image} alt={leader.name} />
+                        <img src={baseUrl + leader.image} alt={leader.name} />
                     </div>
                     <div className="offset-md-1">
                         <h4>{leader.name}</h4>

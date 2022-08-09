@@ -1,14 +1,15 @@
-import React, { Component }  from "react";
+import React, { Component } from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Label, Modal, ModalHeader, ModalBody, Button, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderDish({ dish }) {
     return (
         <div className="col-12 col-md-5 m-1">
             <Card>
-                <CardImg src={dish.image} alt={dish.name} />
+                <CardImg top src={baseUrl + dish.image} alt={dish.name} />
                 <CardBody>
                     <CardTitle>{dish.name}</CardTitle>
                     <CardText>{dish.description}</CardText>
@@ -59,16 +60,16 @@ class CommentForm extends Component {
 
         this.toggleModal = this.toggleModal.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        
+
         this.state = {
-          isNavOpen: false,
-          isModalOpen: false
+            isNavOpen: false,
+            isModalOpen: false
         };
     }
 
     toggleModal() {
         this.setState({
-          isModalOpen: !this.state.isModalOpen
+            isModalOpen: !this.state.isModalOpen
         });
     }
 
@@ -78,45 +79,45 @@ class CommentForm extends Component {
     }
 
     render() {
-        return(
-        <div>
-            <Button outline onClick={this.toggleModal}><span className="fa fa-pencil fa-lg"></span> Submit Comment</Button>
-            <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} fade={false}>
-            <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
-            <ModalBody>
-                <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-                    <Row className="form-group">
-                        <Col>
-                        <Label htmlFor="rating">Rating</Label>
-                        <Control.select model=".rating" id="rating" className="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </Control.select>
-                        </Col>
-                    </Row>
-                    <Row className="form-group">
-                        <Col>
-                        <Label htmlFor="author">Your Name</Label>
-                        <Control.text model=".author" id="rating" className="form-control" />
-                        </Col>
-                    </Row>
-                    <Row className="form-group">
-                        <Col>
-                        <Label htmlFor="comment">Comment</Label>
-                        <Control.textarea model=".comment" id="comment"
-                                    rows="6" className="form-control" />
-                        </Col>
-                    </Row>
-                    <Button type="submit" className="bg-primary">
-                        Submit
-                    </Button>
-                </LocalForm>
-            </ModalBody>
-           </Modal>
-        </div>
+        return (
+            <div>
+                <Button outline onClick={this.toggleModal}><span className="fa fa-pencil fa-lg"></span> Submit Comment</Button>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} fade={false}>
+                    <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+                    <ModalBody>
+                        <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                            <Row className="form-group">
+                                <Col>
+                                    <Label htmlFor="rating">Rating</Label>
+                                    <Control.select model=".rating" id="rating" className="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Control.select>
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Col>
+                                    <Label htmlFor="author">Your Name</Label>
+                                    <Control.text model=".author" id="rating" className="form-control" />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Col>
+                                    <Label htmlFor="comment">Comment</Label>
+                                    <Control.textarea model=".comment" id="comment"
+                                        rows="6" className="form-control" />
+                                </Col>
+                            </Row>
+                            <Button type="submit" className="bg-primary">
+                                Submit
+                            </Button>
+                        </LocalForm>
+                    </ModalBody>
+                </Modal>
+            </div>
         );
     }
 
@@ -124,18 +125,18 @@ class CommentForm extends Component {
 
 const DishDetail = (props) => { //implement this method called render() which will return the corresponding view for this component
     if (props.isLoading) {
-        return(
+        return (
             <div className="container">
-                <div className="row">            
+                <div className="row">
                     <Loading />
                 </div>
             </div>
         );
     }
     else if (props.errMess) {
-        return(
+        return (
             <div className="container">
-                <div className="row">            
+                <div className="row">
                     <h4>{props.errMess}</h4>
                 </div>
             </div>
