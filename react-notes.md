@@ -659,7 +659,7 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
 
 * IMPORTANT NOTE: THE ABOVE REDUX ACTION data IS NOT PERSISTENT
 
-* for PERSISTENT STATE code see line 920 and beyond
+* for PERSISTENT STATE code see beyond line 920 and * 1272 *
 
 ### Redux Thunk -- for logging application -- (code written below is for "loading" application when screen is refreshed)
 - Redux Thunk middleware allows you to write action creators that return a function instead of an action.
@@ -919,7 +919,7 @@ import { Loading } from './LoadingComponent';
 
 ### React-Redux-Form Revisited
 - say you partially fill in the feedback form and navigate to other components--the feedback form will remain filled in when you come back to the contactus page
-- react-redux-form to interact with Redux store and store the state of the form in the store. (he state of the form will be PERSISTED in the store)
+- react-redux-form to interact with Redux store and store the state of the form in the store. (he state of the form will be PERSISTED in the store until page is REFRESHED)
 
 1. Add a new file named forms.js in the redux folder and add the following to it:
 ```
@@ -1266,4 +1266,100 @@ import { baseUrl } from '../shared/baseUrl';
 . . .
 ```
 
-###
+* IMPORTANT
+Fetching Post code is typed below
+
+* THE BELOW CODE IS PERSISTENT (it will update json data on server) even after window is closed
+
+### Fetch Post Comment 
+1. Open ActionCreators.js and update it as follows:
+```
+. . .
+
+export const addComment = (comment) => ({
+    type: ActionTypes.ADD_COMMENT,
+    payload: comment
+});
+
+export const postComment = (dishId, rating, author, comment) => (dispatch) => {
+
+    const newComment = {
+        dishId: dishId,
+        rating: rating,
+        author: author,
+        comment: comment
+    };
+    newComment.date = new Date().toISOString();
+    
+    return fetch(baseUrl + 'comments', {
+        method: "POST",
+        body: JSON.stringify(newComment),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "same-origin"
+    })
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          var error = new Error('Error ' + response.status + ': ' + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      },
+      error => {
+            throw error;
+      })
+    .then(response => response.json())
+    .then(response => dispatch(addComment(response)))
+    .catch(error =>  { console.log('post comments', error.message); alert('Your comment could not be posted\nError: '+error.message); });
+};
+
+. . .
+```
+2. Open comments.js and remove the following two lines from it:
+```
+. . .
+
+       comment.id = state.comments.length;
+       comment.date = new Date().toISOString();
+ 
+ . . .
+```
+3. Open MainComponent.js and update it as follows:
+```
+. . .
+
+import { postComment, fetchDishes, fetchComments, fetchPromos } from '../redux/ActionCreators';
+
+. . .
+
+  postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment))
+
+. . .
+
+            postComment={this.props.postComment}
+            
+. . .
+```
+4. Finally, open DishdetailComponent.js and update it as follows:
+```
+. . .
+
+    function RenderComments({comments, postComment, dishId}) {
+      
+. . .
+
+                    <CommentForm dishId={dishId} postComment={postComment} />
+                    
+. . .
+
+            this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
+            
+. . .
+
+                            postComment={props.postComment}
+                            
+. . .
+```
