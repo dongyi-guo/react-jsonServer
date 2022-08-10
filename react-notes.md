@@ -1363,3 +1363,7 @@ import { postComment, fetchDishes, fetchComments, fetchPromos } from '../redux/A
                             
 . . .
 ```
+
+### React Animations
+
+##
