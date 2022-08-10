@@ -1365,5 +1365,134 @@ import { postComment, fetchDishes, fetchComments, fetchPromos } from '../redux/A
 ```
 
 ### React Animations
+2 animation libraries I will use is:
+react-transition-group
+react-animation-components
 
-##
+## Configure your app to use react-transition-group for animations
+1. Install react-transition-group in your React project as follows:
+```
+yarn add react-transition-group@2.3.0
+```
+2. Configure CSS classes for use in animation. Open App.css and add the following classes:
+```
+. . .
+
+.page-enter {
+    opacity: 0.01;
+    transform: translateX(-100%);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 300ms ease-in;
+}
+
+.page-exit {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.page-exit-active {
+    opacity: 0.01;
+    transform: translateX(100%);
+    transition: all 300ms ease-out;
+}
+```
+3. Then, open MainComponent.js and add in the following to configure the animation:
+```
+. . .
+
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
+. . .
+
+        <Header />
+        <TransitionGroup>
+          <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+            <Switch>
+              <Route path='/home' component={HomePage} />
+              <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />
+              <Route exact path='/menu' component={() => <Menu dishes={this.props.dishes} />} />
+              <Route path='/menu/:dishId' component={DishWithId} />
+              <Route exact path='/contactus' component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+              <Redirect to="/home" />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+        <Footer />
+          
+. . .
+```
+
+## Use react-animation-components to add more subtle animations
+1. Install react-animation-components into your React app as follows:
+```
+yarn add react-animation-components@3.0.0
+yarn add prop-types@15.6.0
+```
+2. Open HomeComponents.js and update as follows:
+```
+. . .
+
+import { FadeTransform } from 'react-animation-components';
+
+. . .
+
+            <FadeTransform
+                in
+                transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
+                <Card>
+                    <CardImg src={baseUrl + item.image} alt={item.name} />
+                    <CardBody>
+                    <CardTitle>{item.name}</CardTitle>
+                    {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null }
+                    <CardText>{item.description}</CardText>
+                    </CardBody>
+                </Card>
+            </FadeTransform>
+            
+. . .
+```
+3. Open DishdetailComponents.js and update it as follows:
+```
+. . .
+
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+
+. . .
+
+            <FadeTransform
+                in
+                transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
+            <Card>
+                <CardImg top src={baseUrl + dish.image} alt={dish.name} />
+                <CardBody>
+                    <CardTitle>{dish.name}</CardTitle>
+                    <CardText>{dish.description}</CardText>
+                </CardBody>
+            </Card>
+            </FadeTransform>
+            
+. . .
+
+                    <Stagger in>
+                        {comments.map((comment) => {
+                            return (
+                                <Fade in>
+                                <li key={comment.id}>
+                                <p>{comment.comment}</p>
+                                <p>-- {comment.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                                </li>
+                                </Fade>
+                            );
+                        })}
+                        </Stagger>
+                        
+. . .
+```
