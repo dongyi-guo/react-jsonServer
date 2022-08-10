@@ -10,7 +10,7 @@ npm install
 ```
 ```
 
-### JavaScript Library/Framework?
+# JavaScript Library/Framework?
 
 - ReactStrap -- provides prebuilt Bootstrap 4 components
 - Flux architecture -- one approach for implementing the entire technology stack 
@@ -19,7 +19,7 @@ npm install
 
 * I will be using Bootstrap as a way of styling the views in my react application 
 
-### Setting Up React
+# Setting Up React
 1. install yarn -- package manager (note you can also use npm instead of yarn, however yarn is better suited and faster to work with for React applications)
 - to install, follow instructions on https://classic.yarnpkg.com/en/docs/install
 
@@ -35,7 +35,7 @@ or use: npm install -g create-react-app
 create-react-app --help
 ```
 
-### Generating and Serving a React Project using create-react-app
+# Generating and Serving a React Project using create-react-app
 1. navigate to dest folder and type create-react-app followed by the name of the folder (in this case the name of the folder is called confusion)
 ```
 create-react-app confusion
@@ -65,7 +65,7 @@ git push -u origin main
 * random note : JSX allows us to write HTML in React
 * note, if using _npm install_ dont forget _--save_
   
-### Configure your React Project to use ReactStrap
+# Configure your React Project to use ReactStrap
 - the JavaScript part of Bootstrap cannot be directly used together with React.
 - instead, configure React application to use a Bootstrap-based package called Reactstrap
 1. install bootstrap
@@ -143,7 +143,7 @@ Benefits of This Approach
 
 * OTHER NOTES: to store images go to public folder and *mkdir assets*, inside assets *mkdir images*, upload all images inside images folder
 
-### Constructing React Components using JSX and JavaScript  
+# Constructing React Components using JSX and JavaScript  
 1. to store all react Components in one place, go to src folder and 
 ```
 mkdir components
@@ -275,7 +275,7 @@ import Menu from './components/MenuComponent';
 ```
 5. next, open App.css file and *delete all its contents*
 
-### Using Font-Awesome Icons Bootstrap-Social
+# Using Font-Awesome Icons Bootstrap-Social
 ```
 yarn add font-awesome@4.7.0
 ```
@@ -288,14 +288,14 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-social/bootstrap-social.css';
 ```
 
-### For Footer code, see node_and_bootstrap.md
+# For Footer code, see node_and_bootstrap.md
 
-### For app.css code, see node_and_bootstrap.md
+# For app.css code, see node_and_bootstrap.md
 - dont forget to import './App.css'; in app.js
 
 * React Router is the most popular routing library for React
 
-### React Router
+# React Router
 - Set up the router module to enable navigation among multiple component views
 - 
 You might have multiple pages and you want to be able to navigate among the views that are rendered by these various pages. So, this is where the React Router comes to our aid. 
@@ -454,17 +454,17 @@ import { Link } from 'react-router-dom';
 7. Open MenuComponent.js and remove the onClick() from the Card in the RenderMenuItem() function.
 8. Save all the changes and do a Git commit with the message "React Router".
 
-### Controlled Forms
+# Controlled Forms
 - controlled forms use states, therefore you will need to use a class component
 - With controlled inputs, there is always some sort of change going on. The value of the input field will almost always be a prop of the class component (usually a state). Going along with this, there will also be a callback that is necessary to handle the changes going on with the input field.
 - for reactstrap you define col as such-- <Col md={2}>
 - or you can use size to specify how many columns as such-- 
 <Col md={{size:6, offset:2}}>
 
-### Uncontrolled Forms
+# Uncontrolled Forms
 - With uncontrolled input values, there is no updating or changing of any states. What you submit is what you get.
 
-### Install and Configure Redux for React Application
+# Install and Configure Redux for React Application
 - Redux is a realization of the flux architecture (a way of structuring your React application)
 - install Redux and React-Redux into your application as follows:
 ```
@@ -485,17 +485,19 @@ yarn add react-redux@8.0.2
 4. state persistence
 5. Time-travel debugging
 
-### Configure and use react-redux-form to create Controlled forms
+# Configure and use react-redux-form to create Controlled forms
 * Store the form state in the Redux store
-# Installing react-redux Form
+
+## Installing react-redux Form
 ```
 yarn add react-redux-form@1.16.14
 ```
 - next update the feedback form in contact component
 
-### Redux Action
+# Redux Action
 * have separate reducers managing parts of the state, and how they can be combined together to manage the whole state.
-# Implement reducers that are responsible for only part of the state
+
+## Implement reducers that are responsible for only part of the state
 1. In the redux folder, create a new file named dishes.js and add the following to it:
 ```
 import { DISHES } from '../shared/dishes';
@@ -541,7 +543,7 @@ export const Leaders = (state = LEADERS, action) => {
       }
 };
 ```
-# Combine the reducers to manage the entire state
+### Combine the reducers to manage the entire state
 - Now that we have split the management of state into different reducers that manage partial state, we need to combine them together. Open configureStore.js and update it as follows:
 ```
 import {createStore, combineReducers} from 'redux';
@@ -564,7 +566,7 @@ export const ConfigureStore = () => {
 }
 ```
 
-## Redux Actions
+### Redux Actions
 * define various Redux actions and implement the action creators to dispatch the actions to the Redux store. 
 1. In the redux folder create a new file named ActionTypes.js and add the following to it:
 ```
@@ -661,7 +663,7 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
 
 * for PERSISTENT STATE code see beyond line 920 and * 1272 *
 
-### Redux Thunk -- for logging application -- (code written below is for "loading" application when screen is refreshed)
+# Redux Thunk -- for logging application -- (code written below is for "loading" application when screen is refreshed)
 - Redux Thunk middleware allows you to write action creators that return a function instead of an action.
 1. Install Redux Thunk and Logger as shown below:
 ```
@@ -917,7 +919,7 @@ import { Loading } from './LoadingComponent';
 . . .
 ```
 
-### React-Redux-Form Revisited
+# React-Redux-Form Revisited
 - say you partially fill in the feedback form and navigate to other components--the feedback form will remain filled in when you come back to the contactus page
 - react-redux-form to interact with Redux store and store the state of the form in the store. (he state of the form will be PERSISTED in the store until page is REFRESHED)
 
@@ -1000,7 +1002,7 @@ import { Control, Form, Errors, actions } from 'react-redux-form';
 . . .
 ```
 
-### Client-Server Communication
+# Client-Server Communication
 - Set up a simple server that makes data available for clients
 - Access the data from the server using a browser.
 - Use the json-server as a simple static web server.
@@ -1012,12 +1014,12 @@ import { Control, Form, Errors, actions } from 'react-redux-form';
 - Configure and start a simple server using the json-server module
 - Configure your server to serve up static web content stored in a folder named public
 
-# Installing json-server
+### Installing json-server
 - json-server is a node module, and hence can be installed globally by typing the following at the command prompt:
 ```
 npm install json-server -g
 ```
-# Configuring the Server
+### Configuring the Server
 - At any convenient location on your computer, create a new folder named json-server, and move to this folder
 - Download the db.json file and move it to this folder.
 - Move to this folder in your terminal window, and type the following at the command prompt to start the server:
@@ -1038,7 +1040,7 @@ http://localhost:3001/feedback
 ```
 http://localhost:3001/
 ```
-# Serving up the Images
+### Serving up the Images
 - Create a public folder in your json-server folder.
 - Download the images.zip file that is provided, unzip it and move the images folder containing the images to the public folder.
 - Restart the json-server as we did before. Now your server will serve up the images for our React app. You can view these images by typing the following into your browser address bar:
@@ -1052,7 +1054,7 @@ http://localhost:3001/images/<image name>.png
 
 (until line 1266)
 
-### Fetch
+# Fetch
 - In this exercise you will:
 1. Install Fetch in your React application
 2. Use Fetch to communicate from your React application with a REST API server
@@ -1271,7 +1273,7 @@ Fetching Post code is typed below
 
 * THE BELOW CODE IS PERSISTENT (it will update json data on server) even after window is closed
 
-### Fetch Post Comment 
+# Fetch Post Comment 
 1. Open ActionCreators.js and update it as follows:
 ```
 . . .
@@ -1370,7 +1372,7 @@ You can do the above (fetch post) similarly for feedback form, the only differen
 this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.agree, values.contactType, values.message);
 ```
 
-### React Animations
+# React Animations
 2 animation libraries I will use is:
 react-transition-group
 react-animation-components
@@ -1503,7 +1505,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 . . .
 ```
 
-### Building and Deployment
+# Building and Deployment
 - Use react-scripts to build a distribution folder with your React application bundled using Webpack
 1. To build the distribution folder containing your React application, type the following at the prompt:
 ```
