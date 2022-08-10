@@ -1364,6 +1364,12 @@ import { postComment, fetchDishes, fetchComments, fetchPromos } from '../redux/A
 . . .
 ```
 
+* NOTE: 
+You can do the above (fetch post) similarly for feedback form, the only difference is point number 4, where only one-line of code is appended (in the handleSubmit function)
+```
+this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.agree, values.contactType, values.message);
+```
+
 ### React Animations
 2 animation libraries I will use is:
 react-transition-group
@@ -1496,3 +1502,17 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                         
 . . .
 ```
+
+### Building and Deployment
+- Use react-scripts to build a distribution folder with your React application bundled using Webpack
+1. To build the distribution folder containing your React application, type the following at the prompt:
+```
+npm run build
+```
+2. This should build a distribution folder named build containing all your application files.
+
+## Deploying your React Application
+1. To deploy your React application you need a server. Fortunately we already have the json-server available on our computer.
+2. Copy the contents of the build folder to the public folder of your json-server
+3. Now your React application can be accessed at the link http://localhost:3001/
+4. If you are setting up a server on the cloud or anywhere, all that you need to do is copy the contents of the build folder to the server side to deploy your React application. The exact procedure depends on the cloud service provider that you choose to use. Please consult their documentation to see the procedure to set up the server.
