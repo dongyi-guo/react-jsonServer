@@ -18,10 +18,10 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
   
   return fetch(baseUrl + 'comments', {
       method: "POST",
-      body: JSON.stringify(newComment),
       headers: {
         "Content-Type": "application/json"
       },
+      body: JSON.stringify(newComment),
       credentials: "same-origin"
   })
   .then(response => {
@@ -202,10 +202,10 @@ export const postFeedback = (firstname, lastname, telnum, email, agree, contactT
   
   return fetch(baseUrl + 'feedbacks', {
       method: "POST",
-      body: JSON.stringify(newFeedback),
       headers: {
         "Content-Type": "application/json"
       },
+      body: JSON.stringify(newFeedback),
       credentials: "same-origin"
   })
   .then(response => {
