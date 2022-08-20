@@ -2,43 +2,43 @@
   "dishes": [
     {
       "id": 0,
-      "name": "Uthappizza",
-      "image": "images/uthappizza.png",
+      "name": "Creamy Mushroom and Spicy Ground Beef",
+      "image": "images/mushbeef.png",
       "category": "mains",
       "label": "Hot",
       "price": "4.99",
-      "featured": true,
-      "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer."
+      "featured": "true",
+      "description": "This hearty and savory dish has mushrooms, grass-fed beef, onions, spinach, and more."
     },
     {
       "id": 1,
-      "name": "Zucchipakoda",
-      "image": "images/zucchipakoda.png",
-      "category": "appetizer",
+      "name": "Bacon, Egg Sandwich and an Avocado",
+      "image": "images/baconegg.png",
+      "category": "mains",
       "label": "",
       "price": "1.99",
-      "featured": false,
-      "description": "Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce"
+      "featured": "false",
+      "description": "The Bacon is cooked in medium heat until browned. The 4 eggs are cooked until sunny side up is medium-hard, the eggs are then folded into a sandwich."
     },
     {
       "id": 2,
-      "name": "Vadonut",
-      "image": "images/vadonut.png",
-      "category": "appetizer",
+      "name": "Cauliflower Hash Browns",
+      "image": "images/hash.png",
+      "category": "mains",
       "label": "New",
       "price": "1.99",
-      "featured": false,
-      "description": "A quintessential ConFusion experience, is it a vada or is it a donut?"
+      "featured": "false",
+      "description": "Aaron's go-to--say less!"
     },
     {
       "id": 3,
-      "name": "ElaiCheese Cake",
-      "image": "images/elaicheesecake.png",
-      "category": "dessert",
+      "name": "Cajun Waffle Fries",
+      "image": "images/cajun.png",
+      "category": "mains",
       "label": "",
       "price": "2.99",
-      "featured": false,
-      "description": "A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms"
+      "featured": "false",
+      "description": "These cajun waffle fries have eggs, cauliflower, parmesan cheese, and of course, tasty cajun spices."
     }
   ],
   "comments": [
@@ -201,22 +201,6 @@
       "comment": "It's your birthday, we're gonna party!",
       "author": "25 Cent",
       "date": "2011-12-02T17:57:28.556094Z"
-    },
-    {
-      "dishId": 1,
-      "rating": "5",
-      "author": "Aaron John",
-      "comment": "Love the Food",
-      "date": "2022-08-10T09:04:50.067Z",
-      "id": 20
-    },
-    {
-      "dishId": 0,
-      "rating": "5",
-      "author": "Aaron John",
-      "comment": "I modified the code",
-      "date": "2022-08-12T02:17:47.749Z",
-      "id": 21
     }
   ],
   "promotions": [
@@ -233,8 +217,8 @@
   "leaders": [
     {
       "id": 0,
-      "name": "Peter Pan",
-      "image": "images/alberto.png",
+      "name": "Aaron John",
+      "image": "images/aaron.png",
       "designation": "Chief Epicurious Officer",
       "abbr": "CEO",
       "featured": false,
@@ -242,8 +226,8 @@
     },
     {
       "id": 1,
-      "name": "Dhanasekaran Witherspoon",
-      "image": "images/alberto.png",
+      "name": "Ronald Ocean",
+      "image": "images/aaron.png",
       "designation": "Chief Food Officer",
       "abbr": "CFO",
       "featured": false,
@@ -251,8 +235,8 @@
     },
     {
       "id": 2,
-      "name": "Agumbe Tang",
-      "image": "images/alberto.png",
+      "name": "Bruce Wayne",
+      "image": "images/aaron.png",
       "designation": "Chief Taste Officer",
       "abbr": "CTO",
       "featured": false,
@@ -260,15 +244,15 @@
     },
     {
       "id": 3,
-      "name": "Alberto Somayya",
-      "image": "images/alberto.png",
+      "name": "Ip Man",
+      "image": "images/aaron.png",
       "designation": "Executive Chef",
       "abbr": "EC",
       "featured": true,
       "description": "Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!"
     }
   ],
-  "feedbacks": [
+  "feedback": [
     {
       "firstname": "fdas",
       "lastname": "afds",
@@ -279,61 +263,6 @@
       "message": "afadsfds",
       "date": "2017-12-04T09:41:49.890Z",
       "id": 1
-    },
-    {
-      "firstname": "Aaron",
-      "lastname": "John",
-      "telnum": "2345353",
-      "email": "aaron@gma.com",
-      "agree": false,
-      "contactType": "Tel.",
-      "message": "this is a test",
-      "date": "2022-08-10T12:06:15.978Z",
-      "id": 2
-    },
-    {
-      "firstname": "aaron",
-      "lastname": "john",
-      "telnum": "123456",
-      "email": "niroj@gma.com",
-      "agree": true,
-      "contactType": "Tel.",
-      "message": "testing for success alert",
-      "date": "2022-08-10T12:12:24.944Z",
-      "id": 3
-    },
-    {
-      "firstname": "aaron",
-      "lastname": "john",
-      "telnum": "00000",
-      "email": "aaron@gma.com",
-      "agree": true,
-      "contactType": "Email",
-      "message": "this is my final test... hopefully",
-      "date": "2022-08-10T12:13:34.114Z",
-      "id": 4
-    },
-    {
-      "firstname": "Ronald",
-      "lastname": "Ocean",
-      "telnum": "777888",
-      "email": "ronald@ocean.com",
-      "agree": true,
-      "contactType": "Email",
-      "message": "This feedback is sent from the build uploaded to public server",
-      "date": "2022-08-10T13:43:27.140Z",
-      "id": 5
-    },
-    {
-      "firstname": "chris",
-      "lastname": "chuck",
-      "telnum": "0000000",
-      "email": "chris@chuck.com",
-      "agree": true,
-      "contactType": "Tel.",
-      "message": "this is not chris chuck",
-      "date": "2022-08-10T14:19:58.799Z",
-      "id": 6
     }
   ]
 }
