@@ -1518,3 +1518,28 @@ npm run build
 2. Copy the contents of the build folder to the public folder of your json-server
 3. Now your React application can be accessed at the link http://localhost:3001/
 4. If you are setting up a server on the cloud or anywhere, all that you need to do is copy the contents of the build folder to the server side to deploy your React application. The exact procedure depends on the cloud service provider that you choose to use. Please consult their documentation to see the procedure to set up the server.
+              
+### Firebase Hosting
+1. first create distribution folder
+```
+yarn build
+```
+2. install firebase-tools globally
+```
+curl -sL https://firebase.tools | bash
+```
+
+* Do the following from root folder, NOT build folder
+
+3. login to firebase (for auth)
+```
+firebase login
+```
+3. configure hosting
+```
+firebase init
+```
+4. deploy app
+```
+firebase deploy
+```              
